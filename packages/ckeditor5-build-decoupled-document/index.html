@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CKEditor 5 – Document editor</title>
+    <script src="build/ckeditor.js"></script>
+</head>
+<body>
+    <h1>Document editor</h1>
+
+    <div class="document-editor">
+        <div class="document-editor__toolbar"></div>
+        <div class="document-editor__editable-container">
+            <div class="document-editor__editable">
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    window.addEventListener("DOMContentLoaded", () => {
+        DecoupledDocumentEditor
+        .create( document.querySelector( '.document-editor__editable' ), {
+            plugins: [ Essentials, Paragraph, Heading, List, Bold, Italic, Placeholder ],
+            toolbar: [ 'heading', '|', 'bold', 'italic', 'numberedList', 'bulletedList', '|', 'placeholder' ],
+            placeholderConfig: {
+                types: [ 'date', 'color', 'first name', 'surname' ]
+            }
+        }).then( editor => {
+            const toolbarContainer = document.querySelector( '.document-editor__toolbar' );
+    
+            toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+            
+            window.editor = editor;
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+    });
+    </script>
+</body>
+</html>
