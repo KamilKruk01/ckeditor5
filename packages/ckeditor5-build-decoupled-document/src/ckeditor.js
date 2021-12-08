@@ -10,6 +10,7 @@ import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment.js';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
 import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage.js';
 import AutoLink from '@ckeditor/ckeditor5-link/src/autolink.js';
+import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter.js';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
 import Code from '@ckeditor/ckeditor5-basic-styles/src/code.js';
@@ -19,11 +20,14 @@ import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolo
 import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor.js';
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily.js';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize.js';
+import GeneralHtmlSupport from '@ckeditor/ckeditor5-html-support/src/generalhtmlsupport';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading.js';
 import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight.js';
 import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js';
 import Image from '@ckeditor/ckeditor5-image/src/image.js';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption.js';
+import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert.js';
+import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload.js';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle.js';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar.js';
@@ -66,6 +70,7 @@ DecoupledEditor.builtinPlugins = [
 	Autoformat,
 	AutoImage,
 	AutoLink,
+	Base64UploadAdapter,
 	BlockQuote,
 	Bold,
 	Code,
@@ -75,11 +80,14 @@ DecoupledEditor.builtinPlugins = [
 	FontColor,
 	FontFamily,
 	FontSize,
+	GeneralHtmlSupport,
 	Heading,
 	Highlight,
 	HorizontalLine,
 	Image,
 	ImageCaption,
+	ImageInsert,
+	ImageUpload,
 	ImageResize,
 	ImageStyle,
 	ImageToolbar,
@@ -132,15 +140,13 @@ DecoupledEditor.defaultConfig = {
 			'strikethrough',
 			'highlight',
 			'removeFormat',
-			'|',
 			'specialCharacters',
-			'subscript',
-			'superscript',
 			'|',
 			'alignment',
 			'numberedList',
 			'bulletedList',
 			'|',
+			'imageUpload',
 			'todoList',
 			'link',
 			'blockQuote',
@@ -171,6 +177,74 @@ DecoupledEditor.defaultConfig = {
 			'mergeTableCells',
 			'tableCellProperties',
 			'tableProperties'
+		]
+	},
+	fontSize: {
+		options: [9, 11, 13, "default", 17, 19, 21, 23, 25, 27],
+	},
+	fontColor: {
+		colors: [
+			{
+				color: '#000000',
+				label: 'Schwarz'
+			},
+			{
+				color: '#4d4d4d',
+				label: 'Dunkelgrau'
+			},
+			{
+				color: '#999999',
+				label: 'Grau'
+			},
+			{
+				color: '#e6e6e6',
+				label: 'Hellgrau'
+			},
+			{
+				color: '#ffffff',
+				label: 'Weiß',
+				hasBorder: true
+			},
+			{
+				color: '#e64c4c',
+				label: 'Rot'
+			},
+			{
+				color: '#e6994c',
+				label: 'Orange'
+			},
+			{
+				color: '#e6e64c',
+				label: 'Gelb'
+			},
+			{
+				color: '#99e64c',
+				label: 'Hellgrün'
+			},
+			{
+				color: '#4ce64c',
+				label: 'Grün'
+			},
+			{
+				color: '#4ce699',
+				label: 'Aquamarinblau'
+			},
+			{
+				color: '#4ce6e6',
+				label: 'Türkis'
+			},
+			{
+				color: '#4c99e6',
+				label: 'Hellblau'
+			},
+			{
+				color: '#4c4ce6',
+				label: 'Blau'
+			},
+			{
+				color: '#994ce6',
+				label: 'Violett'
+			}
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.

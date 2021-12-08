@@ -18,13 +18,8 @@
     
     <script>
     window.addEventListener("DOMContentLoaded", () => {
-        DecoupledDocumentEditor
+        DecoupledEditor
         .create( document.querySelector( '.document-editor__editable' ), {
-            plugins: [ Essentials, Paragraph, Heading, List, Bold, Italic, Placeholder ],
-            toolbar: [ 'heading', '|', 'bold', 'italic', 'numberedList', 'bulletedList', '|', 'placeholder' ],
-            placeholderConfig: {
-                types: [ 'date', 'color', 'first name', 'surname' ]
-            }
         }).then( editor => {
             const toolbarContainer = document.querySelector( '.document-editor__toolbar' );
     

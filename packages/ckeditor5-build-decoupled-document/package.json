@@ -31,8 +31,10 @@
     "@ckeditor/ckeditor5-cloud-services": "^31.0.0",
     "@ckeditor/ckeditor5-easy-image": "^31.0.0",
     "@ckeditor/ckeditor5-editor-decoupled": "^31.0.0",
+    "@ckeditor/ckeditor5-html-support": "^31.0.0",
     "@ckeditor/ckeditor5-media-embed": "^31.0.0",
-    "@ckeditor/ckeditor5-typing": "^31.0.0"
+    "@ckeditor/ckeditor5-typing": "^31.0.0",
+    "@ckeditor/ckeditor5-upload": "^31.0.0"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-alignment": "^31.0.0",
